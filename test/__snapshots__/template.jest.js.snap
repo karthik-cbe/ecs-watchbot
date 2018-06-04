@@ -33,9 +33,15 @@ Object {
           },
         ],
         "EvaluationPeriods": 1,
+<<<<<<< HEAD
         "MetricName": "ApproximateNumberOfMessagesNotVisible",
         "Namespace": "AWS/SQS",
         "Period": 60,
+=======
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Period": "60",
+>>>>>>> alarms
         "Statistic": "Minimum",
         "Threshold": 1,
       },
@@ -60,6 +66,35 @@ Object {
       },
       "Type": "AWS::SQS::Queue",
     },
+<<<<<<< HEAD
+=======
+    "SoupFailedWorkerPlacementMetric": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.failedPlacement = true }",
+        "LogGroupName": Object {
+          "Ref": "SoupLogs",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": Object {
+              "Fn::Join": Array [
+                "",
+                Array [
+                  "SoupFailedWorkerPlacement-",
+                  Object {
+                    "Ref": "AWS::StackName",
+                  },
+                ],
+              ],
+            },
+            "MetricNamespace": "Mapbox/ecs-watchbot",
+            "MetricValue": 1,
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+>>>>>>> alarms
     "SoupFailedworkerPlacementAlarm": Object {
       "Properties": Object {
         "AlarmActions": Array [
@@ -67,7 +102,11 @@ Object {
             "Ref": "SoupNotificationTopic",
           },
         ],
+<<<<<<< HEAD
         "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/undefined/docs/alarms.md#failedworkerplacement",
+=======
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v3.5.1/docs/alarms.md#failedworkerplacement",
+>>>>>>> alarms
         "AlarmName": Object {
           "Fn::Sub": "\${AWS::StackName}-failed-worker-placement",
         },
@@ -85,7 +124,11 @@ Object {
           ],
         },
         "Namespace": "Mapbox/ecs-watchbot",
+<<<<<<< HEAD
         "Period": 60,
+=======
+        "Period": "60",
+>>>>>>> alarms
         "Statistic": "Sum",
         "Threshold": 5,
       },
@@ -185,7 +228,11 @@ Object {
             "Ref": "SoupNotificationTopic",
           },
         ],
+<<<<<<< HEAD
         "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/undefined/docs/alarms.md#queuesize",
+=======
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v3.5.1/docs/alarms.md#queuesize",
+>>>>>>> alarms
         "AlarmName": Object {
           "Fn::Sub": "\${AWS::StackName}-queue-size",
         },
@@ -201,12 +248,21 @@ Object {
             },
           },
         ],
+<<<<<<< HEAD
         "EvaluationPeriods": 3,
         "MetricName": "ApproximateNumberOfMessagesVisible",
         "Namespace": "AWS/SQS",
         "Period": 300,
         "Statistic": "Average",
         "Threshold": 5,
+=======
+        "EvaluationPeriods": 24,
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Period": "300",
+        "Statistic": "Average",
+        "Threshold": 40,
+>>>>>>> alarms
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -624,7 +680,11 @@ Object {
             "Ref": "SoupNotificationTopic",
           },
         ],
+<<<<<<< HEAD
         "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/undefined/docs/alarms.md#workererrors",
+=======
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v3.5.1/docs/alarms.md#workererrors",
+>>>>>>> alarms
         "AlarmName": Object {
           "Fn::Sub": "\${AWS::StackName}-worker-errors",
         },
@@ -642,12 +702,47 @@ Object {
           ],
         },
         "Namespace": "Mapbox/ecs-watchbot",
+<<<<<<< HEAD
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 0,
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+=======
+        "Period": "60",
+        "Statistic": "Sum",
+        "Threshold": 10,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "SoupWorkerErrorsMetric": Object {
+      "Properties": Object {
+        "FilterPattern": "\\"[failure]\\"",
+        "LogGroupName": Object {
+          "Ref": "SoupLogs",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": Object {
+              "Fn::Join": Array [
+                "",
+                Array [
+                  "SoupWorkerErrors-",
+                  Object {
+                    "Ref": "AWS::StackName",
+                  },
+                ],
+              ],
+            },
+            "MetricNamespace": "Mapbox/ecs-watchbot",
+            "MetricValue": 1,
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+>>>>>>> alarms
   },
 }
 `;
@@ -685,9 +780,15 @@ Object {
           },
         ],
         "EvaluationPeriods": 1,
+<<<<<<< HEAD
         "MetricName": "ApproximateNumberOfMessagesNotVisible",
         "Namespace": "AWS/SQS",
         "Period": 60,
+=======
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Period": "60",
+>>>>>>> alarms
         "Statistic": "Minimum",
         "Threshold": 1,
       },
@@ -712,6 +813,35 @@ Object {
       },
       "Type": "AWS::SQS::Queue",
     },
+<<<<<<< HEAD
+=======
+    "WatchbotFailedWorkerPlacementMetric": Object {
+      "Properties": Object {
+        "FilterPattern": "{ $.failedPlacement = true }",
+        "LogGroupName": Object {
+          "Ref": "WatchbotLogs",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": Object {
+              "Fn::Join": Array [
+                "",
+                Array [
+                  "WatchbotFailedWorkerPlacement-",
+                  Object {
+                    "Ref": "AWS::StackName",
+                  },
+                ],
+              ],
+            },
+            "MetricNamespace": "Mapbox/ecs-watchbot",
+            "MetricValue": 1,
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+>>>>>>> alarms
     "WatchbotFailedworkerPlacementAlarm": Object {
       "Properties": Object {
         "AlarmActions": Array [
@@ -719,7 +849,11 @@ Object {
             "Ref": "WatchbotNotificationTopic",
           },
         ],
+<<<<<<< HEAD
         "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/undefined/docs/alarms.md#failedworkerplacement",
+=======
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v3.5.1/docs/alarms.md#failedworkerplacement",
+>>>>>>> alarms
         "AlarmName": Object {
           "Fn::Sub": "\${AWS::StackName}-failed-worker-placement",
         },
@@ -737,7 +871,11 @@ Object {
           ],
         },
         "Namespace": "Mapbox/ecs-watchbot",
+<<<<<<< HEAD
         "Period": 60,
+=======
+        "Period": "60",
+>>>>>>> alarms
         "Statistic": "Sum",
         "Threshold": 5,
       },
@@ -837,7 +975,11 @@ Object {
             "Ref": "WatchbotNotificationTopic",
           },
         ],
+<<<<<<< HEAD
         "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/undefined/docs/alarms.md#queuesize",
+=======
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v3.5.1/docs/alarms.md#queuesize",
+>>>>>>> alarms
         "AlarmName": Object {
           "Fn::Sub": "\${AWS::StackName}-queue-size",
         },
@@ -853,12 +995,21 @@ Object {
             },
           },
         ],
+<<<<<<< HEAD
         "EvaluationPeriods": 3,
         "MetricName": "ApproximateNumberOfMessagesVisible",
         "Namespace": "AWS/SQS",
         "Period": 300,
         "Statistic": "Average",
         "Threshold": 5,
+=======
+        "EvaluationPeriods": 24,
+        "MetricName": "ApproximateNumberOfMessagesVisible",
+        "Namespace": "AWS/SQS",
+        "Period": "300",
+        "Statistic": "Average",
+        "Threshold": 40,
+>>>>>>> alarms
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
@@ -1228,7 +1379,11 @@ Object {
             "Ref": "WatchbotNotificationTopic",
           },
         ],
+<<<<<<< HEAD
         "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/undefined/docs/alarms.md#workererrors",
+=======
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v3.5.1/docs/alarms.md#workererrors",
+>>>>>>> alarms
         "AlarmName": Object {
           "Fn::Sub": "\${AWS::StackName}-worker-errors",
         },
@@ -1246,12 +1401,47 @@ Object {
           ],
         },
         "Namespace": "Mapbox/ecs-watchbot",
+<<<<<<< HEAD
         "Period": 60,
         "Statistic": "Sum",
         "Threshold": 0,
       },
       "Type": "AWS::CloudWatch::Alarm",
     },
+=======
+        "Period": "60",
+        "Statistic": "Sum",
+        "Threshold": 10,
+      },
+      "Type": "AWS::CloudWatch::Alarm",
+    },
+    "WatchbotWorkerErrorsMetric": Object {
+      "Properties": Object {
+        "FilterPattern": "\\"[failure]\\"",
+        "LogGroupName": Object {
+          "Ref": "WatchbotLogs",
+        },
+        "MetricTransformations": Array [
+          Object {
+            "MetricName": Object {
+              "Fn::Join": Array [
+                "",
+                Array [
+                  "WatchbotWorkerErrors-",
+                  Object {
+                    "Ref": "AWS::StackName",
+                  },
+                ],
+              ],
+            },
+            "MetricNamespace": "Mapbox/ecs-watchbot",
+            "MetricValue": 1,
+          },
+        ],
+      },
+      "Type": "AWS::Logs::MetricFilter",
+    },
+>>>>>>> alarms
   },
 }
 `;
