@@ -73,3 +73,39 @@ test('[template validation] options set', async (assert) => {
 
   assert.end();
 });
+
+test('[template validation] lambda-mode', async (assert) => {
+  const lambdaMode = cf.merge(template({
+    service: 'example',
+    serviceVersion: '1',
+    lambda: 'WorkerLambdaFunction',
+    cluster: 'processing',
+    maxSize: 10,
+    notificationEmail: 'devnull@mapbox.com'
+  }));
+
+  lambdaMode.Resources.WorkerLambdaFunction = {
+    Type: 'AWS::Lambda::Function',
+    Properties: {
+      Code: {
+        ZipFile: 'bogus code'
+      },
+      Role: cf.sub('arn:aws:iam:${AWS::AccountId}::role/fake'),
+      Handler: 'index.handler',
+      Runtime: 'nodejs8.10',
+      Memory: 128
+    }
+  };
+
+  const tmp = path.join(os.tmpdir(), crypto.randomBytes(8).toString('hex'));
+  fs.writeFileSync(tmp, JSON.stringify(lambdaMode));
+
+  try {
+    await cf.validate(tmp);
+    assert.pass('template is valid');
+  } catch (err) {
+    assert.ifError(err, 'template is not valid');
+  }
+
+  assert.end();
+});

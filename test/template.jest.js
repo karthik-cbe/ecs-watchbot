@@ -18,7 +18,7 @@ test('[template]', () => {
     serviceVersion: '1',
     command: 'echo hello world',
     cluster: 'processing',
-    notificationEmail: 'hello@mapbox.pagerduty.com'
+    notificationEmail: 'devnull@mapbox.com'
   }));
 
   expect(builtWithDefaults).toMatchSnapshot('defaults');
@@ -50,8 +50,19 @@ test('[template]', () => {
     privileged: true,
     messageTimeout: 300,
     messageRetention: 1096,
-    notificationEmail: 'hello@mapbox.pagerduty.com'
+    notificationEmail: 'devnull@mapbox.com'
   }));
 
   expect(setsAllOptions).toMatchSnapshot('all-properties');
+
+  const lambdaMode = template({
+    service: 'example',
+    serviceVersion: '1',
+    lambda: 'WorkerLambdaFunction',
+    cluster: 'processing',
+    maxSize: 10,
+    notificationEmail: 'devnull@mapbox.com'
+  });
+
+  expect(lambdaMode).toMatchSnapshot('lambda-mode');
 });

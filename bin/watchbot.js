@@ -6,18 +6,22 @@ const Watcher = require('../lib/watcher');
 const Logger = require('../lib/logger');
 
 const main = async () => {
-  if (process.argv[2] !== 'listen')
-    throw new Error(`Invalid arguments: ${process.argv.slice(2).join(' ')}`);
-
   const logger = Logger.create('watcher');
-  const command = process.argv.slice(3).join(' ');
-  const volumes = process.env.Volumes.split(',');
-
   const options = {
     queueUrl: process.env.QueueUrl,
-    fresh: process.env.fresh === 'true' ? true : false,
-    workerOptions: { command, volumes }
+    workerOptions: {}
   };
+
+  if (process.argv[2] === 'listen') {
+    options.workerOptions.command = process.argv.slice(3).join(' ');
+    options.workerOptions.volumes = process.env.Volumes.split(',');
+    options.fresh = process.env.fresh === 'true';
+  } else if (process.argv[2] === 'lambda-listen') {
+    options.workerOptions.lambda = process.argv[3];
+    options.workerOptions.concurrency = process.argv[4] ? Number(process.argv[4]) : 1;
+  } else {
+    throw new Error(`Invalid arguments: ${process.argv.slice(2).join(' ')}`);
+  }
 
   const watcher = Watcher.create(options);
 
