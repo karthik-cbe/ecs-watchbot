@@ -6,5 +6,6 @@ module.exports = {
   Message: require('./lib/message'),
   Worker: require('./lib/worker'),
   Watcher: require('./lib/watcher'),
-  Logger: require('./lib/logger')
+  Logger: require('./lib/logger'),
+	progress: require('@mapbox/watchbot-progress').progress
 };
