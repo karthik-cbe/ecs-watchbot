@@ -21,6 +21,7 @@ var cli = meow({
   defaults: { region: 'us-east-1' }
 });
 
+
 var command = cli.input[0];
 if (!command) {
   console.error('ERROR: You must specify a command');
@@ -34,6 +35,10 @@ catch(err) {
   cli.showHelp(1);
 }
 
+console.log('command');
+console.log(command);
+
+console.log(fn);
 fn(cli.flags, function(err) {
   if (err) {
     console.error(err.stack);

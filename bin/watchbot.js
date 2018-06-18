@@ -6,9 +6,15 @@ const Watcher = require('../lib/watcher');
 const Logger = require('../lib/logger');
 
 const main = async () => {
-  if (process.argv[2] !== 'listen')
-    throw new Error(`Invalid arguments: ${process.argv.slice(2).join(' ')}`);
 
+	console.log('process.argv[2]');
+	console.log(process.argv[2]);
+  if (process.argv[2] !== 'listen' && process.argv[2] != 'dead-letter'){
+		console.log('inside if');
+    throw new Error(`Invalid arguments: ${process.argv.slice(2).join(' ')}`);
+	}
+
+	if (process.argv[2] === 'listen') {
   const logger = Logger.create('watcher');
   const command = process.argv.slice(3).join(' ');
 
@@ -24,6 +30,7 @@ const main = async () => {
   } catch (err) {
     logger.log(`[error] ${err.stack}`);
   }
+	}
 };
 
 module.exports = main;
