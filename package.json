@@ -9,7 +9,7 @@
   "bin": {
     "watchbot": "./bin/watchbot.js",
     "watchbot-log": "./bin/watchbot-log.js",
-		"watchbot-progress": "bin/watchbot-progress.sh"
+    "watchbot-progress": "bin/watchbot-progress.sh"
   },
   "scripts": {
     "pretest": "npm run lint && npm run validate-templates",
@@ -47,6 +47,6 @@
     "binary-split": "^1.0.3",
     "fs-extra": "^6.0.1",
     "stream-combiner2": "^1.1.1",
-		"@mapbox/watchbot-progress": "^1.1.3"
+    "@mapbox/watchbot-progress": "^1.1.3"
   }
 }
