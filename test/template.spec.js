@@ -57,4 +57,15 @@ test('[template]', () => {
   }));
 
   expect(setsAllOptions).toMatchSnapshot('all-properties');
+
+  const fifo = cf.merge(template({
+    service: 'example',
+    serviceVersion: '1',
+    command: 'echo hello world',
+    cluster: 'processing',
+    notificationEmail: 'hello@mapbox.pagerduty.com',
+    fifo: true
+  }));
+
+  expect(fifo).toMatchSnapshot('fifo');
 });
