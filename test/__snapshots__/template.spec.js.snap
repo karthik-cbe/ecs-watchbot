@@ -2441,7 +2441,7 @@ Object {
     },
   },
   "Metadata": Object {
-    "EcsWatchbotVersion": "4.10.0",
+    "EcsWatchbotVersion": "4.11.0",
   },
   "Outputs": Object {
     "ClusterArn": Object {
@@ -2472,50 +2472,6 @@ Object {
   },
   "Parameters": Object {},
   "Resources": Object {
-    "WatchbotAlarmCPUUtilization": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
-            "Ref": "WatchbotNotificationTopic",
-          },
-        ],
-        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.10.0/docs/alarms.md#cpuutilization",
-        "AlarmName": Object {
-          "Fn::Join": Array [
-            "-",
-            Array [
-              Object {
-                "Ref": "AWS::StackName",
-              },
-              "WatchbotCPUUtilization",
-            ],
-          ],
-        },
-        "ComparisonOperator": "GreaterThanThreshold",
-        "Dimensions": Array [
-          Object {
-            "Name": "ClusterName",
-            "Value": "processing",
-          },
-          Object {
-            "Name": "ServiceName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
-                "WatchbotService",
-                "Name",
-              ],
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "CPUUtilization",
-        "Namespace": "AWS/ECS",
-        "Period": 60,
-        "Statistic": "Average",
-        "Threshold": 90,
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
     "WatchbotAlarmMemoryUtilization": Object {
       "Properties": Object {
         "AlarmActions": Array [
@@ -2523,7 +2479,7 @@ Object {
             "Ref": "WatchbotNotificationTopic",
           },
         ],
-        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.10.0/docs/alarms.md#memoryutilization",
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.11.0/docs/alarms.md#memoryutilization",
         "AlarmName": Object {
           "Fn::Join": Array [
             "-",
@@ -2881,7 +2837,7 @@ Object {
             "Ref": "WatchbotNotificationTopic",
           },
         ],
-        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.10.0/docs/alarms.md#queuesize",
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.11.0/docs/alarms.md#queuesize",
         "AlarmName": Object {
           "Fn::Join": Array [
             "-",
@@ -3242,7 +3198,7 @@ Object {
               "listen",
               "echo hello world",
             ],
-            "Cpu": undefined,
+            "Cpu": 128,
             "Environment": Array [
               Object {
                 "Name": "WorkTopic",
@@ -3443,7 +3399,7 @@ Object {
             "Ref": "WatchbotNotificationTopic",
           },
         ],
-        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.10.0/docs/alarms.md#workererrors",
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.11.0/docs/alarms.md#workererrors",
         "AlarmName": Object {
           "Fn::Join": Array [
             "-",
@@ -3554,7 +3510,7 @@ Object {
     },
   },
   "Metadata": Object {
-    "EcsWatchbotVersion": "4.10.0",
+    "EcsWatchbotVersion": "4.11.0",
   },
   "Outputs": Object {
     "ClusterArn": Object {
@@ -3585,50 +3541,6 @@ Object {
   },
   "Parameters": Object {},
   "Resources": Object {
-    "WatchbotAlarmCPUUtilization": Object {
-      "Properties": Object {
-        "AlarmActions": Array [
-          Object {
-            "Ref": "WatchbotNotificationTopic",
-          },
-        ],
-        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.10.0/docs/alarms.md#cpuutilization",
-        "AlarmName": Object {
-          "Fn::Join": Array [
-            "-",
-            Array [
-              Object {
-                "Ref": "AWS::StackName",
-              },
-              "WatchbotCPUUtilization",
-            ],
-          ],
-        },
-        "ComparisonOperator": "GreaterThanThreshold",
-        "Dimensions": Array [
-          Object {
-            "Name": "ClusterName",
-            "Value": "processing",
-          },
-          Object {
-            "Name": "ServiceName",
-            "Value": Object {
-              "Fn::GetAtt": Array [
-                "WatchbotService",
-                "Name",
-              ],
-            },
-          },
-        ],
-        "EvaluationPeriods": 10,
-        "MetricName": "CPUUtilization",
-        "Namespace": "AWS/ECS",
-        "Period": 60,
-        "Statistic": "Average",
-        "Threshold": 90,
-      },
-      "Type": "AWS::CloudWatch::Alarm",
-    },
     "WatchbotAlarmMemoryUtilization": Object {
       "Properties": Object {
         "AlarmActions": Array [
@@ -3636,7 +3548,7 @@ Object {
             "Ref": "WatchbotNotificationTopic",
           },
         ],
-        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.10.0/docs/alarms.md#memoryutilization",
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.11.0/docs/alarms.md#memoryutilization",
         "AlarmName": Object {
           "Fn::Join": Array [
             "-",
@@ -3994,7 +3906,7 @@ Object {
             "Ref": "WatchbotNotificationTopic",
           },
         ],
-        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.10.0/docs/alarms.md#queuesize",
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.11.0/docs/alarms.md#queuesize",
         "AlarmName": Object {
           "Fn::Join": Array [
             "-",
@@ -4355,7 +4267,7 @@ Object {
               "listen",
               "echo hello world",
             ],
-            "Cpu": undefined,
+            "Cpu": 128,
             "Environment": Array [
               Object {
                 "Name": "WorkTopic",
@@ -4556,7 +4468,7 @@ Object {
             "Ref": "WatchbotNotificationTopic",
           },
         ],
-        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.10.0/docs/alarms.md#workererrors",
+        "AlarmDescription": "https://github.com/mapbox/ecs-watchbot/blob/v4.11.0/docs/alarms.md#workererrors",
         "AlarmName": Object {
           "Fn::Join": Array [
             "-",
