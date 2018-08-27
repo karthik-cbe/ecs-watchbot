@@ -97,3 +97,4 @@ test('[template validation] fifo queue', async (assert) => {
 
   assert.end();
 });
+

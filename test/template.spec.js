@@ -68,4 +68,16 @@ test('[template]', () => {
   }));
 
   expect(fifo).toMatchSnapshot('fifo');
+
+  const fifoMaxSize = cf.merge(template({
+    service: 'example',
+    serviceVersion: '1',
+    command: 'echo hello world',
+    cluster: 'processing',
+    notificationEmail: 'hello@mapbox.pagerduty.com',
+    fifo: true,
+    maxSize: 50
+  }));
+
+  expect(fifoMaxSize).toMatchSnapshot('fifoMaxSize');
 });
