@@ -957,6 +957,12 @@ Object {
                 },
               },
               Object {
+                "Name": "LogGroup",
+                "Value": Object {
+                  "Ref": "SoupLogGroup",
+                },
+              },
+              Object {
                 "Name": "writableFilesystem",
                 "Value": false,
               },
@@ -2126,6 +2132,12 @@ Object {
                 },
               },
               Object {
+                "Name": "LogGroup",
+                "Value": Object {
+                  "Ref": "WatchbotLogGroup",
+                },
+              },
+              Object {
                 "Name": "writableFilesystem",
                 "Value": false,
               },
@@ -3211,6 +3223,12 @@ Object {
                 },
               },
               Object {
+                "Name": "LogGroup",
+                "Value": Object {
+                  "Ref": "WatchbotLogGroup",
+                },
+              },
+              Object {
                 "Name": "writableFilesystem",
                 "Value": false,
               },
@@ -4277,6 +4295,12 @@ Object {
                 "Name": "QueueUrl",
                 "Value": Object {
                   "Ref": "WatchbotQueue",
+                },
+              },
+              Object {
+                "Name": "LogGroup",
+                "Value": Object {
+                  "Ref": "WatchbotLogGroup",
                 },
               },
               Object {
